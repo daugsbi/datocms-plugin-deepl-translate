@@ -24,7 +24,7 @@
     "translate"
   ],
   "datoCmsPlugin": {
-    "title": "Yandex Translate",
+    "title": "DeepL Translate",
     "previewImage": "docs/demo.gif",
     "coverImage": "docs/cover.jpg",
     "entryPoint": "dist/index.html",

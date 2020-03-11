@@ -1,5 +1,7 @@
 # DatoCMS DeepL Translate plugin
 
+## This plugin is not ready for production yet
+
 Makes it easier to automatically translate your content into secondary languages.
 
 ## Configuration
