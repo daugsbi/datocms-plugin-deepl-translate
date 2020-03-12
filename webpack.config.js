@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const HtmlWebpackIncludeAssetsPlugin = require("html-webpack-include-assets-plugin");
+const HtmlWebpackTagsPlugin = require("html-webpack-tags-plugin");
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -39,10 +39,10 @@ module.exports = {
       title: "DeepL Translate plugin",
       minify: isProduction
     }),
-    new HtmlWebpackIncludeAssetsPlugin({
+    new HtmlWebpackTagsPlugin({
       append: false,
       publicPath: "",
-      assets: [
+      tags: [
         "https://unpkg.com/datocms-plugins-sdk@0.0.8/dist/sdk.js",
         "https://unpkg.com/datocms-plugins-sdk@0.0.8/dist/sdk.css"
       ]
