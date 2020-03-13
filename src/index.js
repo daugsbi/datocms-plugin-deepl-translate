@@ -37,7 +37,7 @@ window.DatoCmsPlugin.init(plugin => {
 
         const qs = toQueryString({
           auth_key: plugin.parameters.global.deepLAuthenticationKey,
-          source_lang: locale.substring(0, 2),
+          target_lang: locale.substring(0, 2).toUpperCase(),
           tag_handling: format,
           text
         });
