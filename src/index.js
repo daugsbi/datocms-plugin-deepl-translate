@@ -48,9 +48,12 @@ window.DatoCmsPlugin.init(plugin => {
 
         return fetch(`https://api.deepl.com/v2/translate?${qs}`)
           .then(res => res.json())
-          .then(response =>
-            plugin.setFieldValue(path, response.text.join(" "))
-          );
+          .then(response => {
+            const text = response.translations
+              .map(translation => translation.text)
+              .join(" ");
+            plugin.setFieldValue(path, text);
+          });
       })
     );
 
