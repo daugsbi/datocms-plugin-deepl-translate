@@ -1,6 +1,10 @@
 import toQueryString from "to-querystring";
+import marked from "marked";
+import Turndown from "turndown";
 
 import "./style.sass";
+
+const turndownService = new Turndown();
 
 window.DatoCmsPlugin.init(plugin => {
   const label = "Translate in other languages";
@@ -34,6 +38,12 @@ window.DatoCmsPlugin.init(plugin => {
           plugin.setFieldValue(path, "");
           return Promise.resolve();
         }
+        let toTranslate = text;
+
+        if (format === "markdown") {
+          // Convert to HTML
+          toTranslate = marked(text);
+        }
 
         const qs = toQueryString({
           auth_key: plugin.parameters.global.deepLAuthenticationKey,
@@ -52,7 +62,12 @@ window.DatoCmsPlugin.init(plugin => {
             const text = response.translations
               .map(translation => translation.text)
               .join(" ");
-            plugin.setFieldValue(path, text);
+            if (format === "markdown") {
+              // Convert back to markdown
+              plugin.setFieldValue(path, turndownService.turndown(text));
+            } else {
+              plugin.setFieldValue(path, text);
+            }
           });
       })
     );
@@ -64,7 +79,7 @@ window.DatoCmsPlugin.init(plugin => {
 
       const { attributes: field } = plugin.field;
 
-      const format = field.appeareance.editor === "wysiwyg" ? "xml" : "";
+      const format = field.appeareance.editor; // i. e. markdown
 
       translate(plugin.getFieldValue(fieldPath), format).then(() => {
         link.textContent = label;

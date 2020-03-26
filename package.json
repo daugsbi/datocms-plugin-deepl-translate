@@ -1,7 +1,7 @@
 {
   "name": "datocms-plugin-deepl-translate",
   "homepage": "https://github.com/daugsbi/datocms-plugin-deepl-translate#readme",
-  "version": "0.0.5-beta",
+  "version": "0.0.6-beta",
   "description": "Translates your content with the help of DeepL",
   "main": "index.js",
   "author": "Twteam <info@twteam.ch>",
@@ -84,6 +84,8 @@
   "dependencies": {
     "debounce": "^1.2.0",
     "eslint-import-resolver-webpack": "^0.12.1",
-    "to-querystring": "^1.1.0"
+    "marked": "^0.8.2",
+    "to-querystring": "^1.1.0",
+    "turndown": "^6.0.0"
   }
 }
