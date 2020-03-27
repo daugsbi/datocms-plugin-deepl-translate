@@ -38,7 +38,7 @@ window.DatoCmsPlugin.init(plugin => {
           plugin.setFieldValue(path, "");
           return Promise.resolve();
         }
-        let toTranslate = text;
+        var toTranslate = text;
 
         if (format === "markdown") {
           // Convert to HTML
@@ -48,8 +48,8 @@ window.DatoCmsPlugin.init(plugin => {
         const qs = toQueryString({
           auth_key: plugin.parameters.global.deepLAuthenticationKey,
           target_lang: locale.substring(0, 2).toUpperCase(),
-          tag_handling: format,
-          text
+          tag_handling: "xml",
+          text: toTranslate
         });
 
         if (plugin.parameters.global.developmentMode) {

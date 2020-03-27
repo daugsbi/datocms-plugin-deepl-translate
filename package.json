@@ -1,7 +1,7 @@
 {
   "name": "datocms-plugin-deepl-translate",
   "homepage": "https://github.com/daugsbi/datocms-plugin-deepl-translate#readme",
-  "version": "0.0.6-beta",
+  "version": "0.0.7-beta",
   "description": "Translates your content with the help of DeepL",
   "main": "index.js",
   "author": "Twteam <info@twteam.ch>",
