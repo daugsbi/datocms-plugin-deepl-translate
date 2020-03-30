@@ -42,7 +42,7 @@ window.DatoCmsPlugin.init(plugin => {
 
         if (format === "markdown") {
           // Convert to HTML
-          toTranslate = marked(text);
+          toTranslate = marked(text, { xhtml: true });
         }
 
         const qs = toQueryString({
