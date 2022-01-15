@@ -84,7 +84,7 @@
   "dependencies": {
     "debounce": "^1.2.0",
     "eslint-import-resolver-webpack": "^0.12.1",
-    "marked": "^0.8.2",
+    "marked": "^4.0.10",
     "to-querystring": "^1.1.0",
     "turndown": "^6.0.0"
   }
